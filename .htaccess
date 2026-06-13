@@ -1,0 +1,57 @@
+# ============================================================
+#  Deva-Build87 — .htaccess (SuperHosting / Apache / LiteSpeed)
+#  Качи този файл в главната папка на сайта (там, където е index.html)
+# ============================================================
+
+AddDefaultCharset UTF-8
+Options -Indexes
+DirectoryIndex index.html
+
+# ---------- 404 страница ----------
+ErrorDocument 404 /404.html
+
+# ---------- Пренасочване към https:// и www (важно за Google) ----------
+# Всичко без https ИЛИ без www се праща с 301 към https://www.deva-build87.bg
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off [OR]
+  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteRule ^ https://www.deva-build87.bg%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ---------- Компресия (по-бързо зареждане) ----------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/xml application/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json image/svg+xml
+</IfModule>
+
+# ---------- Кеширане в браузъра ----------
+# HTML = винаги свежо (показва промените веднага)
+# CSS/JS = 1 година (обновяват се чрез ?v= версията)
+# Снимки/шрифтове = 1 година
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault                      "access plus 1 month"
+  ExpiresByType text/html             "access plus 0 seconds"
+  ExpiresByType text/css              "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/webp            "access plus 1 year"
+  ExpiresByType image/jpeg            "access plus 1 year"
+  ExpiresByType image/png             "access plus 1 year"
+  ExpiresByType image/svg+xml         "access plus 1 year"
+  ExpiresByType image/x-icon          "access plus 1 year"
+  ExpiresByType font/woff2            "access plus 1 year"
+</IfModule>
+
+# ---------- Хедъри: сигурност + кеш за HTML ----------
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  # HSTS — задължава https (включва се само когато сайтът вече върви на https)
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+  # HTML страниците винаги се проверяват за нова версия
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
