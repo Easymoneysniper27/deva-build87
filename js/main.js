@@ -333,6 +333,7 @@
         .then(function (res) {
           if (res && res.success) {
             trackAdsConversion();
+            trackFormSubmitConversion();
             form.reset();
             showSuccess("Благодарим ви! Запитването е изпратено успешно — ще се свържем с вас до края на работния ден. Ако е спешно, обадете се на 0884 202 868.");
           } else {
@@ -361,6 +362,14 @@
   function trackAdsConversion() {
     if (typeof gtag === "function") {
       gtag("event", "conversion", { send_to: "AW-18234839839/tTv4CLeIm80cEJ-mhvdD" });
+    }
+  }
+
+  /* Отделна конверсия специално за успешно изпратена форма за контакт
+     (запитване/оферта), с отделен label от Google Ads. */
+  function trackFormSubmitConversion() {
+    if (typeof gtag === "function") {
+      gtag("event", "conversion", { send_to: "AW-18234839839/PPK0COimms0cEJ-mhvdD" });
     }
   }
 
