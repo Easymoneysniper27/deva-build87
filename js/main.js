@@ -332,7 +332,6 @@
         .then(function (r) { return r.json(); })
         .then(function (res) {
           if (res && res.success) {
-            trackAdsConversion();
             trackFormSubmitConversion();
             form.reset();
             showSuccess("Благодарим ви! Запитването е изпратено успешно — ще се свържем с вас до края на работния ден. Ако е спешно, обадете се на 0884 202 868.");
