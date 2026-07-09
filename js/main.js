@@ -332,6 +332,8 @@
         .then(function (r) { return r.json(); })
         .then(function (res) {
           if (res && res.success) {
+            trackAdsConversion();
+            trackFormSubmitConversion();
             form.reset();
             showSuccess("Благодарим ви! Запитването е изпратено успешно — ще се свържем с вас до края на работния ден. Ако е спешно, обадете се на 0884 202 868.");
           } else {
@@ -352,6 +354,34 @@
       });
     });
   }
+
+  /* ---------- Google Ads — проследяване на реализации ----------
+     Пуска конверсия „Заявка за оферта“ при: клик на телефон (tel:),
+     клик на имейл (mailto:) и успешно изпращане на формата (по-долу).
+  ------------------------------------------------------------ */
+  function trackAdsConversion() {
+    if (typeof gtag === "function") {
+      gtag("event", "conversion", { send_to: "AW-18234839839/tTv4CLeIm80cEJ-mhvdD" });
+    }
+  }
+
+  /* Отделна конверсия специално за успешно изпратена форма за контакт
+     (запитване/оферта), с отделен label от Google Ads. */
+  function trackFormSubmitConversion() {
+    if (typeof gtag === "function") {
+      gtag("event", "conversion", { send_to: "AW-18234839839/PPK0COimms0cEJ-mhvdD" });
+    }
+  }
+
+  var adsFired = {}; // отчита само веднъж на тип в рамките на текущата страница
+  document.addEventListener("click", function (e) {
+    var link = e.target.closest ? e.target.closest('a[href^="tel:"], a[href^="mailto:"]') : null;
+    if (!link) return;
+    var type = link.getAttribute("href").indexOf("tel:") === 0 ? "phone" : "email";
+    if (adsFired[type]) return;
+    adsFired[type] = true;
+    trackAdsConversion();
+  });
 
   /* ---------- Текуща година във footer ---------- */
   var yearEl = document.getElementById("year");
