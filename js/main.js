@@ -355,12 +355,21 @@
   }
 
   /* ---------- Google Ads — проследяване на реализации ----------
-     Пуска конверсия „Заявка за оферта“ при: клик на телефон (tel:),
-     клик на имейл (mailto:) и успешно изпращане на формата (по-долу).
+     Пуска конверсия при: клик на телефон (tel:) → отделен label „обаждане“,
+     клик на имейл (mailto:) → общ label „Заявка за оферта“ и успешно
+     изпращане на формата (по-долу) → отделен label за форма.
   ------------------------------------------------------------ */
   function trackAdsConversion() {
     if (typeof gtag === "function") {
       gtag("event", "conversion", { send_to: "AW-18234839839/tTv4CLeIm80cEJ-mhvdD" });
+    }
+  }
+
+  /* Отделна конверсия за обаждане при клик на телефонен линк (tel:),
+     с отделен label от Google Ads. */
+  function trackPhoneConversion() {
+    if (typeof gtag === "function") {
+      gtag("event", "conversion", { send_to: "AW-18234839839/qsyfCIb3i84cEJ-mhvdD" });
     }
   }
 
@@ -379,7 +388,11 @@
     var type = link.getAttribute("href").indexOf("tel:") === 0 ? "phone" : "email";
     if (adsFired[type]) return;
     adsFired[type] = true;
-    trackAdsConversion();
+    if (type === "phone") {
+      trackPhoneConversion();
+    } else {
+      trackAdsConversion();
+    }
   });
 
   /* ---------- Текуща година във footer ---------- */
