@@ -2,9 +2,9 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "deva-eng87-fresh",
+      "name": "devabuild-sait",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["-y", "http-server", "-p", "8088", "-c-1", "."],
+      "runtimeArgs": ["-y", "http-server", "public", "-p", "8088", "-c-1"],
       "port": 8088
     }
   ]
