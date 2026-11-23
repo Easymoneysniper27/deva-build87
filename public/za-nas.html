@@ -1,64 +1,73 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-  <!-- Meta Pixel Code -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1823493998622525');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1823493998622525&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DYB2HBD01G"></script>
-  <script>
+    document.documentElement.classList.add('js');
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+      analytics_storage: 'denied', wait_for_update: 500
+    });
+    gtag('set', 'ads_data_redaction', true);
+    gtag('set', 'url_passthrough', true);
+    try {
+      var dbc = JSON.parse(localStorage.getItem('db87-consent') || 'null');
+      if (dbc) {
+        gtag('consent', 'update', {
+          analytics_storage: dbc.a ? 'granted' : 'denied',
+          ad_storage: dbc.m ? 'granted' : 'denied',
+          ad_user_data: dbc.m ? 'granted' : 'denied',
+          ad_personalization: dbc.m ? 'granted' : 'denied'
+        });
+      }
+    } catch (e) {}
+  </script>
+  <script>
     gtag('js', new Date());
     gtag('config', 'G-DYB2HBD01G');
     gtag('config', 'AW-18234839839');
+    /* Google тагът се зарежда след показване на страницата – не бави телефона */
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-DYB2HBD01G';
+        document.head.appendChild(s);
+      }, 0);
+    });
   </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>За нас — Deva-Build87 | Строително-ремонтна фирма с традиции</title>
-  <meta name="description" content="Deva-Build87 е строително-ремонтна фирма с дългогодишен опит, собствени екипи и писмена гаранция за качество. Научете повече за нашите ценности и начин на работа.">
+  <meta name="description" content="Deva-Build87 — строително-ремонтна фирма със собствени екипи и писмена гаранция. Научете как работим и какво ни отличава.">
   <meta name="theme-color" content="#ffffff">
   <meta property="og:title" content="За нас — Deva-Build87">
   <meta property="og:description" content="Строително-ремонтна фирма с дългогодишен опит, собствени екипи и писмена гаранция за качество.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="bg_BG">
-  <meta property="og:url" content="https://www.deva-build87.com/za-nas.html">
+  <meta property="og:url" content="https://deva-build87.com/za-nas">
   <meta property="og:site_name" content="Deva-Build87">
-  <meta property="og:image" content="https://www.deva-build87.com/images/og/og-default.jpg">
+  <meta property="og:image" content="https://deva-build87.com/images/og/og-default.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://www.deva-build87.com/images/og/og-default.jpg">
-  <link rel="canonical" href="https://www.deva-build87.com/za-nas.html">
-  <link rel="icon" href="favicon.ico?v=20260614a" sizes="any">
-  <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48.png?v=20260614a">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png?v=20260614a">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png?v=20260614a">
-  <link rel="apple-touch-icon" href="images/favicon-180.png?v=20260614a">
-  <link rel="preload" href="fonts/oswald-600-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/inter-400-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/fonts.css">
-  <link rel="stylesheet" href="css/style.css?v=20260613c">
+  <meta name="twitter:image" content="https://deva-build87.com/images/og/og-default.jpg">
+  <link rel="canonical" href="https://deva-build87.com/za-nas">
+  <link rel="icon" href="/favicon.ico?v=20260614a" sizes="any">
+  <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48.png?v=20260614a">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=20260614a">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png?v=20260614a">
+  <link rel="apple-touch-icon" href="/images/favicon-180.png?v=20260614a">
+  <link rel="preload" href="/fonts/oswald-600-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-400-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/style.css?v=20261123c">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Начало", "item": "https://www.deva-build87.com/" },
+      { "@type": "ListItem", "position": 1, "name": "Начало", "item": "https://deva-build87.com/" },
       { "@type": "ListItem", "position": 2, "name": "За нас" }
     ]
   }
@@ -69,24 +78,24 @@
 
   <header class="site-header">
     <div class="container nav-wrap">
-      <a class="brand" href="index.html" aria-label="Deva-Build87 — начална страница"><img class="brand-logo" src="images/brand-logo-build87.webp" alt="Deva-Build87 — строително-ремонтни услуги" width="132" height="44"></a>
+      <a class="brand" href="/"><img class="brand-logo" src="/images/brand-logo-build87.webp" alt="Deva-Build87 — строително-ремонтни услуги" width="132" height="44"></a>
 
       <nav class="site-nav" id="site-nav" aria-label="Главна навигация">
         <ul>
-          <li><a href="index.html">Начало</a></li>
+          <li><a href="/">Начало</a></li>
           <li class="has-sub">
-            <a href="uslugi.html">Услуги<svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
+            <a href="/uslugi">Услуги<svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
             <ul class="sub-menu">
-              <li><a href="remont-na-pokrivi.html">Ремонт на покриви</a></li>
-              <li><a href="fasadi.html">Фасади и саниране</a></li>
-              <li><a href="grub-stroezh.html">Груб строеж</a></li>
-              <li><a href="vutreshni-remonti.html">Вътрешни ремонти</a></li>
-              <li><a href="uslugi.html" class="sub-all">Всички услуги</a></li>
+              <li><a href="/remont-na-pokrivi">Ремонт на покриви</a></li>
+              <li><a href="/fasadi">Фасади и саниране</a></li>
+              <li><a href="/grub-stroezh">Груб строеж</a></li>
+              <li><a href="/vutreshni-remonti">Вътрешни ремонти</a></li>
+              <li><a href="/uslugi" class="sub-all">Всички услуги</a></li>
             </ul>
           </li>
-          <li><a href="proekti.html">Проекти</a></li>
-          <li><a href="za-nas.html" class="is-active" aria-current="page">За нас</a></li>
-          <li><a href="kontakti.html">Контакти</a></li>
+          <li><a href="/proekti">Проекти</a></li>
+          <li><a href="/za-nas" class="is-active" aria-current="page">За нас</a></li>
+          <li><a href="/kontakti">Контакти</a></li>
         </ul>
       </nav>
 
@@ -116,7 +125,7 @@
     <section class="section">
       <div class="container split">
         <div class="split-media" data-reveal="left">
-          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=1200&auto=format&fit=crop" alt="Строителни кранове на обект по залез слънце" loading="lazy" decoding="async">
+          <img width="800" height="1067" src="/images/grub-stroezh/grub-stroezh-03-800.webp" srcset="/images/grub-stroezh/grub-stroezh-03-480.webp 480w, /images/grub-stroezh/grub-stroezh-03-800.webp 800w, /images/grub-stroezh/grub-stroezh-03-1200.webp 1200w" sizes="(max-width: 900px) 92vw, 45vw" alt="Тухлена зидария на първия етаж на къща — обект на Deva-Build87" loading="lazy" decoding="async">
           <span class="frame-accent" aria-hidden="true"></span>
           <div class="experience-chip">
             <span class="big">240+</span>
@@ -129,7 +138,7 @@
           <h2>От малък екип до партньор в цяла България</h2>
           <p>Започнахме с малки вътрешни ремонти и едно твърдо правило — да си тръгваме от обекта едва когато клиентът е напълно доволен. Днес изпълняваме цялостни проекти в десетки населени места: от покривни конструкции и саниране на цели сгради до ремонти до ключ.</p>
           <p>Зад всеки обект стоят собствените ни екипи от майстори с дългогодишен опит — хора, които познаваме и на които вярваме. Не прехвърляме работата на случайни подизпълнители и затова можем да гарантираме качеството с името си.</p>
-          <a class="btn btn--accent" href="proekti.html">Вижте нашата работа
+          <a class="btn btn--accent" href="/proekti">Вижте нашата работа
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </a>
         </div>
@@ -190,19 +199,19 @@
 
         <div class="hero-stats" style="max-width:100%;" data-reveal>
           <div>
-            <div class="stat-num"><span data-count="15" data-suffix="+">0+</span></div>
+            <div class="stat-num"><span data-count="15" data-suffix="+">15+</span></div>
             <div class="stat-label">години опит в бранша</div>
           </div>
           <div>
-            <div class="stat-num"><span data-count="240" data-suffix="+">0+</span></div>
+            <div class="stat-num"><span data-count="240" data-suffix="+">240+</span></div>
             <div class="stat-label">завършени обекта</div>
           </div>
           <div>
-            <div class="stat-num"><span data-count="98" data-suffix="%">0%</span></div>
+            <div class="stat-num"><span data-count="98" data-suffix="%">98%</span></div>
             <div class="stat-label">доволни клиенти</div>
           </div>
           <div>
-            <div class="stat-num"><span data-count="60" data-suffix="+">0+</span></div>
+            <div class="stat-num"><span data-count="60" data-suffix="+">60+</span></div>
             <div class="stat-label">населени места в България</div>
           </div>
         </div>
@@ -213,7 +222,7 @@
     <section class="section section--soft">
       <div class="container split split--reverse">
         <div class="split-media" data-reveal="right">
-          <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=1200&auto=format&fit=crop" alt="Екип от специалисти обсъжда строителен проект" loading="lazy" decoding="async">
+          <img width="800" height="1067" src="/images/fasadi/fasadi-02-800.webp" srcset="/images/fasadi/fasadi-02-480.webp 480w, /images/fasadi/fasadi-02-800.webp 800w, /images/fasadi/fasadi-02-1200.webp 1200w" sizes="(max-width: 900px) 92vw, 45vw" alt="Скеле и топлоизолация на фасада на къща — обект на Deva-Build87" loading="lazy" decoding="async">
           <span class="frame-accent" aria-hidden="true"></span>
         </div>
 
@@ -239,7 +248,7 @@
               Застраховка и спазване на всички норми за безопасност
             </li>
           </ul>
-          <a class="btn btn--accent" href="kontakti.html">Свържете се с нас
+          <a class="btn btn--accent" href="/kontakti">Свържете се с нас
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </a>
         </div>
@@ -259,7 +268,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               0884 202 868
             </a>
-            <a class="btn btn--dark" href="kontakti.html">Изпратете запитване</a>
+            <a class="btn btn--dark" href="/kontakti">Изпратете запитване</a>
           </div>
         </div>
       </div>
@@ -271,7 +280,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a class="brand" href="index.html" aria-label="Deva-Build87 — начална страница"><img class="brand-logo" src="images/brand-logo-build87.webp" alt="Deva-Build87 — строително-ремонтни услуги" width="132" height="44"></a>
+          <a class="brand" href="/"><img class="brand-logo" src="/images/brand-logo-build87.webp" alt="Deva-Build87 — строително-ремонтни услуги" width="132" height="44"></a>
           <p>Надеждни строително-ремонтни услуги за вашия дом и бизнес. Работим в цяла България — от огледа до последния детайл.</p>
           <a class="footer-social" href="https://www.facebook.com/profile.php?id=61577359176378" target="_blank" rel="noopener" aria-label="Deva-Build87 във Facebook">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -282,21 +291,21 @@
         <div class="footer-col">
           <h3>Услуги</h3>
           <ul>
-            <li><a href="remont-na-pokrivi.html">Ремонт на покриви</a></li>
-            <li><a href="fasadi.html">Фасади и саниране</a></li>
-            <li><a href="grub-stroezh.html">Груб строеж</a></li>
-            <li><a href="vutreshni-remonti.html">Вътрешни ремонти</a></li>
+            <li><a href="/remont-na-pokrivi">Ремонт на покриви</a></li>
+            <li><a href="/fasadi">Фасади и саниране</a></li>
+            <li><a href="/grub-stroezh">Груб строеж</a></li>
+            <li><a href="/vutreshni-remonti">Вътрешни ремонти</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h3>Навигация</h3>
           <ul>
-            <li><a href="index.html">Начало</a></li>
-            <li><a href="uslugi.html">Услуги</a></li>
-            <li><a href="proekti.html">Проекти</a></li>
-            <li><a href="za-nas.html">За нас</a></li>
-            <li><a href="kontakti.html">Контакти</a></li>
+            <li><a href="/">Начало</a></li>
+            <li><a href="/uslugi">Услуги</a></li>
+            <li><a href="/proekti">Проекти</a></li>
+            <li><a href="/za-nas">За нас</a></li>
+            <li><a href="/kontakti">Контакти</a></li>
           </ul>
         </div>
 
@@ -325,7 +334,7 @@
 
       <div class="footer-bottom">
         <span>© <span id="year">2026</span> Deva-Build87. Всички права запазени.</span>
-        <span>Строително-ремонтни услуги в цяла България</span>
+        <span class="footer-legal"><a href="/poveritelnost">Поверителност и бисквитки</a><button type="button" class="cookie-settings-link" data-cookie-settings>Настройки за бисквитки</button></span>
       </div>
     </div>
   </footer>
@@ -338,6 +347,7 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
   </button>
 
-  <script src="js/main.js?v=20260613c" defer></script>
+  <script src="/js/consent.js?v=20261123c" defer></script>
+  <script src="/js/main.js?v=20261123c" defer></script>
 </body>
 </html>

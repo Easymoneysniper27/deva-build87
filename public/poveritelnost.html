@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    document.documentElement.classList.add('js');
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+      analytics_storage: 'denied', wait_for_update: 500
+    });
+    gtag('set', 'ads_data_redaction', true);
+    gtag('set', 'url_passthrough', true);
+    try {
+      var dbc = JSON.parse(localStorage.getItem('db87-consent') || 'null');
+      if (dbc) {
+        gtag('consent', 'update', {
+          analytics_storage: dbc.a ? 'granted' : 'denied',
+          ad_storage: dbc.m ? 'granted' : 'denied',
+          ad_user_data: dbc.m ? 'granted' : 'denied',
+          ad_personalization: dbc.m ? 'granted' : 'denied'
+        });
+      }
+    } catch (e) {}
+  </script>
+  <script>
+    gtag('js', new Date());
+    gtag('config', 'G-DYB2HBD01G');
+    gtag('config', 'AW-18234839839');
+    /* Google тагът се зарежда след показване на страницата – не бави телефона */
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-DYB2HBD01G';
+        document.head.appendChild(s);
+      }, 0);
+    });
+  </script>
+  <title>Поверителност и бисквитки | Deva-Build87</title>
+  <meta name="description" content="Как Deva-Build87 събира и използва лични данни от сайта и формата за запитване, какви бисквитки ползваме и как да промените избора си.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://deva-build87.com/poveritelnost">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:title" content="Поверителност и бисквитки | Deva-Build87">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="bg_BG">
+  <meta property="og:url" content="https://deva-build87.com/poveritelnost">
+  <meta property="og:site_name" content="Deva-Build87">
+  <link rel="icon" href="/favicon.ico?v=20260614a" sizes="any">
+  <link rel="icon" type="image/png" sizes="48x48" href="/images/favicon-48.png?v=20260614a">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png?v=20260614a">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png?v=20260614a">
+  <link rel="apple-touch-icon" href="/images/favicon-180.png?v=20260614a">
+  <link rel="preload" href="/fonts/oswald-600-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-400-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/style.css?v=20261123c">
+</head>
+<body>
+  <a class="skip-link" href="#main">Към съдържанието</a>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="/"><img class="brand-logo" src="/images/brand-logo-build87.webp" alt="Deva-Build87 — строително-ремонтни услуги" width="132" height="44"></a>
+
+      <nav class="site-nav" id="site-nav" aria-label="Главна навигация">
+        <ul>
+          <li><a href="/">Начало</a></li>
+          <li class="has-sub">
+            <a href="/uslugi">Услуги<svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
+            <ul class="sub-menu">
+              <li><a href="/remont-na-pokrivi">Ремонт на покриви</a></li>
+              <li><a href="/fasadi">Фасади и саниране</a></li>
+              <li><a href="/grub-stroezh">Груб строеж</a></li>
+              <li><a href="/vutreshni-remonti">Вътрешни ремонти</a></li>
+              <li><a href="/uslugi" class="sub-all">Всички услуги</a></li>
+            </ul>
+          </li>
+          <li><a href="/proekti">Проекти</a></li>
+          <li><a href="/za-nas">За нас</a></li>
+          <li><a href="/kontakti">Контакти</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn btn--accent nav-phone" href="tel:+359884202868">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        0884 202 868
+      </a>
+
+      <button class="nav-toggle" aria-label="Отвори менюто" aria-expanded="false" aria-controls="site-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <span class="kicker" data-hero="1">Правна информация</span>
+        <h1 data-hero="2">Поверителност <span class="accent-text">и бисквитки</span></h1>
+        <p class="lead" data-hero="3">Какви данни събираме през този сайт, защо, колко време ги пазим и какви са вашите права. Последна актуализация: 23.11.2026 г.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container legal">
+        <!-- ЗА ПОПЪЛВАНЕ: пълно юридическо име на фирмата, ЕИК и адрес на управление (чл. 13 GDPR, чл. 4 ЗЕТ) -->
+        <h2>1. Кой обработва данните</h2>
+        <p>Администратор на личните данни е <strong>Deva-Build87</strong> — строително-ремонтни услуги.</p>
+        <ul>
+          <li>Телефон: <a href="tel:+359884202868">0884 202 868</a></li>
+          <li>Имейл: <a href="mailto:deva-build87@mail.bg">deva-build87@mail.bg</a></li>
+        </ul>
+        <p>За всякакви въпроси за личните ви данни ни пишете на имейла по-горе.</p>
+
+        <h2>2. Какви данни събираме и защо</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Данни</th><th>Защо</th><th>Основание</th><th>Колко време</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Име, телефон, имейл (по желание), вид услуга и описание на обекта — от формата за запитване</td>
+                <td>За да се свържем с вас, да организираме оглед и да изготвим оферта</td>
+                <td>Стъпки по ваше искане преди сключване на договор (чл. 6, ал. 1, б. „б“ GDPR)</td>
+                <td>До 12 месеца след последния контакт, ако не сключим договор; при договор — според счетоводните и данъчните срокове</td>
+              </tr>
+              <tr>
+                <td>Данни за обаждане или имейл, когато ни се свържете директно</td>
+                <td>За да отговорим на запитването ви</td>
+                <td>Чл. 6, ал. 1, б. „б“ GDPR</td>
+                <td>Както по-горе</td>
+              </tr>
+              <tr>
+                <td>Данни за посещението (страници, устройство, приблизително местоположение) — чрез бисквитки</td>
+                <td>Статистика и измерване на рекламите</td>
+                <td>Вашето съгласие (чл. 6, ал. 1, б. „а“ GDPR), което можете да оттеглите по всяко време</td>
+                <td>Според срока на съответната бисквитка (вижте т. 4)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>3. На кого предаваме данни</h2>
+        <ul>
+          <li><strong>Web3Forms</strong> — услугата, която препраща запитването от формата до нашия имейл.</li>
+          <li><strong>Cloudflare</strong> — хостинг на сайта и защита от атаки (технически записи за достъп).</li>
+          <li><strong>Google</strong> (Google Analytics, Google Ads) и <strong>Meta</strong> (Facebook) — само ако сте дали съгласие за съответните бисквитки.</li>
+        </ul>
+        <p>Някои от тези доставчици може да обработват данни извън Европейския съюз, при спазване на гаранциите по GDPR (стандартни договорни клаузи или Рамката за защита на данните ЕС–САЩ). Не продаваме лични данни.</p>
+
+        <h2>4. Бисквитки</h2>
+        <p>Бисквитките са малки файлове, които сайтът записва в браузъра ви. Необходимите са винаги включени. Останалите се ползват <strong>само след ваше съгласие</strong> — дотогава Google таговете работят без бисквитки, а Meta Pixel изобщо не се зарежда.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Вид</th><th>Доставчик</th><th>За какво</th><th>Срок</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Необходими</td><td>Deva-Build87 (localStorage „db87-consent“)</td><td>Помни избора ви за бисквитките</td><td>180 дни</td></tr>
+              <tr><td>Необходими</td><td>Cloudflare</td><td>Сигурност и защита от ботове</td><td>До 1 година (обикновено по-кратко)</td></tr>
+              <tr><td>Статистика</td><td>Google Analytics (_ga, _ga_*)</td><td>Брой посещения и как се ползва сайтът</td><td>До 2 години</td></tr>
+              <tr><td>Маркетинг</td><td>Google Ads (_gcl_*)</td><td>Измерване кои реклами водят до запитвания</td><td>До 90 дни</td></tr>
+              <tr><td>Маркетинг</td><td>Meta (_fbp)</td><td>Измерване на рекламите във Facebook и Instagram</td><td>До 90 дни</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Можете да промените избора си по всяко време: <button type="button" class="btn btn--ghost" data-cookie-settings>Настройки за бисквитки</button></p>
+
+        <h2>5. Вашите права</h2>
+        <p>Имате право да поискате достъп до данните си, поправка, изтриване, ограничаване на обработването, преносимост, както и да възразите или да оттеглите съгласието си. Пишете ни на <a href="mailto:deva-build87@mail.bg">deva-build87@mail.bg</a> — ще отговорим до един месец.</p>
+        <p>Ако смятате, че правата ви са нарушени, можете да подадете жалба до <strong>Комисията за защита на личните данни</strong> (КЗЛД), гр. София, бул. „Проф. Цветан Лазаров“ № 2, <a href="https://www.cpdp.bg/" target="_blank" rel="noopener">www.cpdp.bg</a>.</p>
+
+        <h2>6. Промени</h2>
+        <p>При промени в тази политика ще обновим датата в началото на страницата.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a class="brand" href="/"><img class="brand-logo" src="/images/brand-logo-build87.webp" alt="Deva-Build87 — строително-ремонтни услуги" width="132" height="44"></a>
+          <p>Надеждни строително-ремонтни услуги за вашия дом и бизнес. Работим в цяла България — от огледа до последния детайл.</p>
+          <a class="footer-social" href="https://www.facebook.com/profile.php?id=61577359176378" target="_blank" rel="noopener" aria-label="Deva-Build87 във Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Последвайте ни във Facebook
+          </a>
+        </div>
+
+        <div class="footer-col">
+          <h2>Услуги</h2>
+          <ul>
+            <li><a href="/remont-na-pokrivi">Ремонт на покриви</a></li>
+            <li><a href="/fasadi">Фасади и саниране</a></li>
+            <li><a href="/grub-stroezh">Груб строеж</a></li>
+            <li><a href="/vutreshni-remonti">Вътрешни ремонти</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h2>Навигация</h2>
+          <ul>
+            <li><a href="/">Начало</a></li>
+            <li><a href="/uslugi">Услуги</a></li>
+            <li><a href="/proekti">Проекти</a></li>
+            <li><a href="/za-nas">За нас</a></li>
+            <li><a href="/kontakti">Контакти</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h2>Контакти</h2>
+          <ul class="footer-contact">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <a href="tel:+359884202868">0884 202 868</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <a href="mailto:deva-build87@mail.bg">deva-build87@mail.bg</a>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Цяла България — София, Пловдив, Варна, Бургас, Стара Загора, Самоков и др.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>Пон – Съб: 08:00 – 19:00</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <span id="year">2026</span> Deva-Build87. Всички права запазени.</span>
+        <span class="footer-legal"><a href="/poveritelnost">Поверителност и бисквитки</a><button type="button" class="cookie-settings-link" data-cookie-settings>Настройки за бисквитки</button></span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="float-call" href="tel:+359884202868" aria-label="Обадете се на 0884 202 868">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  </a>
+
+  <button class="to-top" aria-label="Обратно към началото">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+  </button>
+
+  <script src="/js/consent.js?v=20261123c" defer></script>
+  <script src="/js/main.js?v=20261123c" defer></script>
+</body>
+</html>

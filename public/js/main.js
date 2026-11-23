@@ -250,36 +250,40 @@
   }
 
   /* ---------- Контактна форма ----------
-     Изпраща запитването директно през Web3Forms (без сървър и без
-     отваряне на имейл програма). Нужен е безплатен access_key, поставен
-     в скритото поле name="access_key" в kontakti.html.
-     Докато ключът е още заместител (започва с „__"), формата автоматично
-     минава към резервен вариант чрез имейл програмата (mailto) — така
-     формата работи дори преди да е добавен ключът.
+     Изпраща запитването през Web3Forms (без собствен сървър).
+     При грешка НЕ казва „Благодарим“ — показва ясно съобщение с телефона,
+     а попълнените данни остават във формата.
   ------------------------------------------------------------ */
   var form = document.getElementById("contact-form");
+
+  /* Телефон във формат E.164 (+359...) за подобреното проследяване на конверсии */
+  function toE164(raw) {
+    var d = String(raw || "").replace(/[^\d+]/g, "");
+    if (d.indexOf("+") === 0) return /^\+\d{10,15}$/.test(d) ? d : "";
+    if (d.indexOf("00") === 0) d = "+" + d.slice(2);
+    else if (d.indexOf("0") === 0) d = "+359" + d.slice(1);
+    else if (d.indexOf("359") === 0) d = "+" + d;
+    return /^\+\d{10,15}$/.test(d) ? d : "";
+  }
 
   if (form) {
     var submitBtn = form.querySelector('button[type="submit"]');
     var successBox = form.parentElement.querySelector(".form-success");
+    var failBox = form.parentElement.querySelector(".form-fail");
 
-    function showSuccess(text) {
-      if (!successBox) return;
-      if (text) successBox.textContent = text;
-      successBox.classList.add("is-visible");
+    function showSuccess() {
+      if (failBox) failBox.classList.remove("is-visible");
+      if (successBox) successBox.classList.add("is-visible");
     }
 
-    function mailtoFallback(d) {
-      var subject = encodeURIComponent("Запитване от сайта — " + d.name);
-      var body = encodeURIComponent(
-        "Име: " + d.name +
-        "\nТелефон: " + d.phone +
-        "\nИмейл: " + d.email +
-        "\nУслуга: " + d.service +
-        "\n\nСъобщение:\n" + d.message
-      );
-      window.location.href = "mailto:deva-build87@mail.bg?subject=" + subject + "&body=" + body;
-      showSuccess("Благодарим ви! Отваряме имейл програмата ви със запитването — само го прегледайте и го изпратете. Ако предпочитате, обадете ни се на 0884 202 868.");
+    function showFail() {
+      if (!failBox) return;
+      failBox.innerHTML =
+        'Запитването <strong>не беше изпратено</strong> — проблем с връзката. ' +
+        'Моля, опитайте отново или се обадете на <a href="tel:+359884202868">0884 202 868</a> ' +
+        '(или пишете на <a href="mailto:deva-build87@mail.bg">deva-build87@mail.bg</a>).';
+      failBox.classList.add("is-visible");
+      if (typeof gtag === "function") gtag("event", "form_error", { form_id: "contact-form" });
     }
 
     form.addEventListener("submit", function (e) {
@@ -289,12 +293,14 @@
       form.querySelectorAll("[required]").forEach(function (field) {
         var empty = !field.value.trim();
         field.classList.toggle("has-error", empty);
+        field.setAttribute("aria-invalid", String(empty));
         if (empty) valid = false;
       });
 
       var emailField = form.querySelector('input[type="email"]');
       if (emailField && emailField.value.trim() && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(emailField.value.trim())) {
         emailField.classList.add("has-error");
+        emailField.setAttribute("aria-invalid", "true");
         valid = false;
       }
 
@@ -304,25 +310,17 @@
         return;
       }
 
-      var data = {
-        name: (form.elements.name && form.elements.name.value) || "",
-        phone: (form.elements.phone && form.elements.phone.value) || "",
-        email: (form.elements.email && form.elements.email.value) || "",
-        service: (form.elements.service && form.elements.service.value) || "",
-        message: (form.elements.message && form.elements.message.value) || ""
-      };
-
-      var keyField = form.querySelector('input[name="access_key"]');
-      var accessKey = keyField ? keyField.value.trim() : "";
-      var keyReady = accessKey && accessKey.indexOf("__") !== 0;
-
-      /* Още няма реален ключ или браузърът не поддържа fetch → резервен mailto */
-      if (!keyReady || !window.fetch) {
-        mailtoFallback(data);
+      if (!window.fetch) {
+        form.submit(); // много стари браузъри – обикновено изпращане
         return;
       }
 
+      var emailVal = emailField ? emailField.value.trim() : "";
+      var phoneVal = toE164(form.elements.phone && form.elements.phone.value);
+      var serviceVal = (form.elements.service && form.elements.service.value) || "";
+
       if (submitBtn) submitBtn.disabled = true;
+      if (failBox) failBox.classList.remove("is-visible");
 
       fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -332,16 +330,14 @@
         .then(function (r) { return r.json(); })
         .then(function (res) {
           if (res && res.success) {
-            trackFormSubmitConversion();
+            trackFormSubmitConversion(emailVal, phoneVal, serviceVal);
             form.reset();
-            showSuccess("Благодарим ви! Запитването е изпратено успешно — ще се свържем с вас до края на работния ден. Ако е спешно, обадете се на 0884 202 868.");
+            showSuccess();
           } else {
-            mailtoFallback(data);
+            showFail();
           }
         })
-        .catch(function () {
-          mailtoFallback(data);
-        })
+        .catch(showFail)
         .then(function () {
           if (submitBtn) submitBtn.disabled = false;
         });
@@ -350,6 +346,7 @@
     form.querySelectorAll("input, textarea, select").forEach(function (field) {
       field.addEventListener("input", function () {
         field.classList.remove("has-error");
+        field.removeAttribute("aria-invalid");
       });
     });
   }
@@ -375,10 +372,23 @@
 
   /* Отделна конверсия специално за успешно изпратена форма за контакт
      (запитване/оферта), с отделен label от Google Ads. */
-  function trackFormSubmitConversion() {
-    if (typeof gtag === "function") {
-      gtag("event", "conversion", { send_to: "AW-18234839839/PPK0COimms0cEJ-mhvdD" });
-    }
+  function trackFormSubmitConversion(email, phone, service) {
+    if (typeof gtag !== "function") return;
+    /* Подобрено проследяване на конверсии (enhanced conversions) – Google го
+       използва само ако посетителят е дал съгласие за маркетинг. */
+    var ud = {};
+    if (email) ud.email = email;
+    if (phone) ud.phone_number = phone;
+    if (ud.email || ud.phone_number) gtag("set", "user_data", ud);
+    gtag("event", "conversion", { send_to: "AW-18234839839/PPK0COimms0cEJ-mhvdD" });
+    gtag("event", "generate_lead", { lead_source: "contact_form", service: service || "" });
+  }
+
+  function linkPlace(link) {
+    if (link.closest(".site-header")) return "header";
+    if (link.closest(".site-footer")) return "footer";
+    if (link.classList.contains("float-call")) return "float_button";
+    return "page";
   }
 
   var adsFired = {}; // отчита само веднъж на тип в рамките на текущата страница
@@ -390,8 +400,10 @@
     adsFired[type] = true;
     if (type === "phone") {
       trackPhoneConversion();
+      if (typeof gtag === "function") gtag("event", "click_to_call", { link_location: linkPlace(link) });
     } else {
       trackAdsConversion();
+      if (typeof gtag === "function") gtag("event", "click_email", { link_location: linkPlace(link) });
     }
   });
 

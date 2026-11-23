@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.deva-build87.com/sitemap.xml
+Sitemap: https://deva-build87.com/sitemap.xml

@@ -1,34 +1,44 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-  <!-- Meta Pixel Code -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1823493998622525');
-  fbq('track', 'PageView');
-  </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1823493998622525&ev=PageView&noscript=1"
-  /></noscript>
-  <!-- End Meta Pixel Code -->
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DYB2HBD01G"></script>
-  <script>
+    document.documentElement.classList.add('js');
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+      analytics_storage: 'denied', wait_for_update: 500
+    });
+    gtag('set', 'ads_data_redaction', true);
+    gtag('set', 'url_passthrough', true);
+    try {
+      var dbc = JSON.parse(localStorage.getItem('db87-consent') || 'null');
+      if (dbc) {
+        gtag('consent', 'update', {
+          analytics_storage: dbc.a ? 'granted' : 'denied',
+          ad_storage: dbc.m ? 'granted' : 'denied',
+          ad_user_data: dbc.m ? 'granted' : 'denied',
+          ad_personalization: dbc.m ? 'granted' : 'denied'
+        });
+      }
+    } catch (e) {}
+  </script>
+  <script>
     gtag('js', new Date());
     gtag('config', 'G-DYB2HBD01G');
     gtag('config', 'AW-18234839839');
+    /* Google тагът се зарежда след показване на страницата – не бави телефона */
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-DYB2HBD01G';
+        document.head.appendChild(s);
+      }, 0);
+    });
   </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Страницата не е намерена (404) | Deva-Build87</title>
   <meta name="description" content="Търсената страница не съществува. Върнете се към началната страница на Deva-Build87 или разгледайте нашите строително-ремонтни услуги.">
   <meta name="robots" content="noindex, follow">
@@ -44,8 +54,7 @@
   <link rel="apple-touch-icon" href="/images/favicon-180.png?v=20260614a">
   <link rel="preload" href="/fonts/oswald-600-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/inter-400-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/fonts.css">
-  <link rel="stylesheet" href="/css/style.css?v=20260613c">
+  <link rel="stylesheet" href="/css/style.css?v=20261123c">
   <style>
     .error-page {
       min-height: calc(100vh - var(--nav-h));
@@ -82,24 +91,24 @@
 
   <header class="site-header">
     <div class="container nav-wrap">
-      <a class="brand" href="/index.html" aria-label="Deva-Build87 — начална страница"><img class="brand-logo" src="/images/brand-logo-build87.webp" alt="Deva-Build87 — строително-ремонтни услуги" width="132" height="44"></a>
+      <a class="brand" href="/"><img class="brand-logo" src="/images/brand-logo-build87.webp" alt="Deva-Build87 — строително-ремонтни услуги" width="132" height="44"></a>
 
       <nav class="site-nav" id="site-nav" aria-label="Главна навигация">
         <ul>
-          <li><a href="/index.html">Начало</a></li>
+          <li><a href="/">Начало</a></li>
           <li class="has-sub">
-            <a href="/uslugi.html">Услуги<svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
+            <a href="/uslugi">Услуги<svg class="caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a>
             <ul class="sub-menu">
-              <li><a href="/remont-na-pokrivi.html">Ремонт на покриви</a></li>
-              <li><a href="/fasadi.html">Фасади и саниране</a></li>
-              <li><a href="/grub-stroezh.html">Груб строеж</a></li>
-              <li><a href="/vutreshni-remonti.html">Вътрешни ремонти</a></li>
-              <li><a href="/uslugi.html" class="sub-all">Всички услуги</a></li>
+              <li><a href="/remont-na-pokrivi">Ремонт на покриви</a></li>
+              <li><a href="/fasadi">Фасади и саниране</a></li>
+              <li><a href="/grub-stroezh">Груб строеж</a></li>
+              <li><a href="/vutreshni-remonti">Вътрешни ремонти</a></li>
+              <li><a href="/uslugi" class="sub-all">Всички услуги</a></li>
             </ul>
           </li>
-          <li><a href="/proekti.html">Проекти</a></li>
-          <li><a href="/za-nas.html">За нас</a></li>
-          <li><a href="/kontakti.html">Контакти</a></li>
+          <li><a href="/proekti">Проекти</a></li>
+          <li><a href="/za-nas">За нас</a></li>
+          <li><a href="/kontakti">Контакти</a></li>
         </ul>
       </nav>
 
@@ -122,19 +131,19 @@
           <h1>Страницата не е намерена</h1>
           <p>Възможно е адресът да е изписан грешно или страницата да е преместена. Но няма страшно — да ви върнем в правилната посока.</p>
           <div class="error-actions">
-            <a class="btn btn--accent" href="/index.html">
+            <a class="btn btn--accent" href="/">
               Към началната страница
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
-            <a class="btn btn--ghost" href="/kontakti.html">Свържете се с нас</a>
+            <a class="btn btn--ghost" href="/kontakti">Свържете се с нас</a>
           </div>
           <nav class="error-links" aria-label="Полезни връзки">
-            <a href="/uslugi.html">Услуги</a>
-            <a href="/remont-na-pokrivi.html">Ремонт на покриви</a>
-            <a href="/fasadi.html">Фасади и саниране</a>
-            <a href="/grub-stroezh.html">Груб строеж</a>
-            <a href="/vutreshni-remonti.html">Вътрешни ремонти</a>
-            <a href="/proekti.html">Проекти</a>
+            <a href="/uslugi">Услуги</a>
+            <a href="/remont-na-pokrivi">Ремонт на покриви</a>
+            <a href="/fasadi">Фасади и саниране</a>
+            <a href="/grub-stroezh">Груб строеж</a>
+            <a href="/vutreshni-remonti">Вътрешни ремонти</a>
+            <a href="/proekti">Проекти</a>
           </nav>
         </div>
       </div>
@@ -145,7 +154,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a class="brand" href="/index.html" aria-label="Deva-Build87 — начална страница"><img class="brand-logo" src="/images/brand-logo-build87.webp" alt="Deva-Build87 — строително-ремонтни услуги" width="132" height="44"></a>
+          <a class="brand" href="/"><img class="brand-logo" src="/images/brand-logo-build87.webp" alt="Deva-Build87 — строително-ремонтни услуги" width="132" height="44"></a>
           <p>Надеждни строително-ремонтни услуги за вашия дом и бизнес. Работим в цяла България — от огледа до последния детайл.</p>
           <a class="footer-social" href="https://www.facebook.com/profile.php?id=61577359176378" target="_blank" rel="noopener" aria-label="Deva-Build87 във Facebook">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -156,21 +165,21 @@
         <div class="footer-col">
           <h2>Услуги</h2>
           <ul>
-            <li><a href="/remont-na-pokrivi.html">Ремонт на покриви</a></li>
-            <li><a href="/fasadi.html">Фасади и саниране</a></li>
-            <li><a href="/grub-stroezh.html">Груб строеж</a></li>
-            <li><a href="/vutreshni-remonti.html">Вътрешни ремонти</a></li>
+            <li><a href="/remont-na-pokrivi">Ремонт на покриви</a></li>
+            <li><a href="/fasadi">Фасади и саниране</a></li>
+            <li><a href="/grub-stroezh">Груб строеж</a></li>
+            <li><a href="/vutreshni-remonti">Вътрешни ремонти</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h2>Навигация</h2>
           <ul>
-            <li><a href="/index.html">Начало</a></li>
-            <li><a href="/uslugi.html">Услуги</a></li>
-            <li><a href="/proekti.html">Проекти</a></li>
-            <li><a href="/za-nas.html">За нас</a></li>
-            <li><a href="/kontakti.html">Контакти</a></li>
+            <li><a href="/">Начало</a></li>
+            <li><a href="/uslugi">Услуги</a></li>
+            <li><a href="/proekti">Проекти</a></li>
+            <li><a href="/za-nas">За нас</a></li>
+            <li><a href="/kontakti">Контакти</a></li>
           </ul>
         </div>
 
@@ -199,7 +208,7 @@
 
       <div class="footer-bottom">
         <span>© <span id="year">2026</span> Deva-Build87. Всички права запазени.</span>
-        <span>Строително-ремонтни услуги в цяла България</span>
+        <span class="footer-legal"><a href="/poveritelnost">Поверителност и бисквитки</a><button type="button" class="cookie-settings-link" data-cookie-settings>Настройки за бисквитки</button></span>
       </div>
     </div>
   </footer>
@@ -212,6 +221,7 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
   </button>
 
-  <script src="/js/main.js?v=20260613c" defer></script>
+  <script src="/js/consent.js?v=20261123c" defer></script>
+  <script src="/js/main.js?v=20261123c" defer></script>
 </body>
 </html>
