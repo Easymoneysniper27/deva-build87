@@ -2569,6 +2569,8 @@ a.chip:hover {
   border-radius: var(--radius-lg);
   box-shadow: 0 24px 60px rgba(20, 20, 20, 0.22);
   padding: 20px 22px;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
 }
 .cookie-banner__title {
   font-family: var(--font-display);
@@ -2625,10 +2627,16 @@ a.chip:hover {
   .cookie-banner__actions { justify-content: stretch; }
   .cookie-btn { flex: 1 1 auto; justify-content: center; }
 }
-/* Плаващият бутон за обаждане не се скрива под банера */
-.has-cookie-banner .float-call,
+/* Докато банерът е отворен: бутонът „нагоре“ се скрива, а плаващият
+   бутон за обаждане остава видим, но над банера */
 .has-cookie-banner .to-top {
   visibility: hidden;
+}
+.cookie-banner.is-open {
+  pointer-events: none;
+}
+.cookie-banner__inner {
+  pointer-events: auto;
 }
 
 /* ---------- Грешка при изпращане на формата ---------- */
@@ -2688,4 +2696,9 @@ a.chip:hover {
 }
 .legal .table-wrap {
   overflow-x: auto;
+}
+/* Плаващият бутон за обаждане: докато банерът е отворен – горе вдясно, под менюто */
+.has-cookie-banner .float-call {
+  top: calc(var(--nav-h) + 12px);
+  bottom: auto;
 }

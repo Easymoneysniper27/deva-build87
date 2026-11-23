@@ -15,7 +15,7 @@
     gtag('set', 'url_passthrough', true);
     try {
       var dbc = JSON.parse(localStorage.getItem('db87-consent') || 'null');
-      if (dbc) {
+      if (dbc && dbc.t && Date.now() - dbc.t < 15552000000) {
         gtag('consent', 'update', {
           analytics_storage: dbc.a ? 'granted' : 'denied',
           ad_storage: dbc.m ? 'granted' : 'denied',
@@ -61,7 +61,7 @@
   <link rel="apple-touch-icon" href="/images/favicon-180.png?v=20260614a">
   <link rel="preload" href="/fonts/oswald-600-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/inter-400-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="/css/style.css?v=20261123c">
+  <link rel="stylesheet" href="/css/style.css?v=20261123d">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -364,7 +364,7 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
   </button>
 
-  <script src="/js/consent.js?v=20261123c" defer></script>
-  <script src="/js/main.js?v=20261123c" defer></script>
+  <script src="/js/consent.js?v=20261123d" defer></script>
+  <script src="/js/main.js?v=20261123d" defer></script>
 </body>
 </html>

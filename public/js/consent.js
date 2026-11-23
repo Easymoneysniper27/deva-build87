@@ -57,6 +57,7 @@
   function apply(c) {
     applyGoogle(c);
     if (c.m) {
+      if (pixelLoaded && typeof window.fbq === "function") window.fbq("consent", "grant");
       loadPixel();
     } else if (pixelLoaded && typeof window.fbq === "function") {
       window.fbq("consent", "revoke");
