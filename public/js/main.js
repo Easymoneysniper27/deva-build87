@@ -370,7 +370,9 @@
     }
   }
 
-  /* Отделна конверсия специално за успешно изпратена форма за контакт
+  /* Конверсия „Изпратена форма (сайт)“ (създадена 24.11.2026, основна) – само при успешно изпращане.
+     Стар етикет PPK0… вече не се ползва.
+     Отделна конверсия специално за успешно изпратена форма за контакт
      (запитване/оферта), с отделен label от Google Ads. */
   function trackFormSubmitConversion(email, phone, service) {
     if (typeof gtag !== "function") return;
@@ -380,7 +382,7 @@
     if (email) ud.email = email;
     if (phone) ud.phone_number = phone;
     if (ud.email || ud.phone_number) gtag("set", "user_data", ud);
-    gtag("event", "conversion", { send_to: "AW-18234839839/PPK0COimms0cEJ-mhvdD" });
+    gtag("event", "conversion", { send_to: "AW-18234839839/l0C2CIvc1b4dEJ-mhvdD" });
     gtag("event", "generate_lead", { lead_source: "contact_form", service: service || "" });
   }
 
