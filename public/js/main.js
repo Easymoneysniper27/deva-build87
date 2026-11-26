@@ -375,6 +375,8 @@
      Отделна конверсия специално за успешно изпратена форма за контакт
      (запитване/оферта), с отделен label от Google Ads. */
   function trackFormSubmitConversion(email, phone, service) {
+    /* Meta Pixel „Lead“ – fbq съществува само ако е дадено съгласие за маркетинг */
+    if (typeof fbq === "function") fbq("track", "Lead", { content_name: service || "запитване" });
     if (typeof gtag !== "function") return;
     /* Подобрено проследяване на конверсии (enhanced conversions) – Google го
        използва само ако посетителят е дал съгласие за маркетинг. */
@@ -403,6 +405,7 @@
     if (type === "phone") {
       trackPhoneConversion();
       if (typeof gtag === "function") gtag("event", "click_to_call", { link_location: linkPlace(link) });
+      if (typeof fbq === "function") fbq("track", "Contact");
     } else {
       trackAdsConversion();
       if (typeof gtag === "function") gtag("event", "click_email", { link_location: linkPlace(link) });
