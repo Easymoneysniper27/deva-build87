@@ -4,6 +4,16 @@
 # Махнатата услуга „Груб строеж“ (24.11.2026) → Услуги.
 /grub-stroezh /uslugi 301
 /grub-stroezh.html /uslugi 301
+# AI постерите на фасади и вътрешни ремонти (махнати на 26.11.2026) → истински снимки.
+/images/fasadi/hero-fasadi-1000.webp /images/fasadi/obekt-toploizolacia-kashta-800.webp 301
+/images/fasadi/hero-fasadi-480.webp /images/fasadi/obekt-toploizolacia-kashta-800.webp 301
+/images/fasadi/hero-fasadi-800.webp /images/fasadi/obekt-toploizolacia-kashta-800.webp 301
+/images/og/og-fasadi.jpg /images/og/og-fasadi-toploizolacia.jpg 301
+/images/og/og-grub-stroezh.jpg /images/og/og-default.jpg 301
+/images/og/og-vatreshni.jpg /images/og/og-vatreshni-remont.jpg 301
+/images/vatreshni/hero-vatreshni-1000.webp /images/vatreshni/vatreshni-12-800.webp 301
+/images/vatreshni/hero-vatreshni-480.webp /images/vatreshni/vatreshni-12-800.webp 301
+/images/vatreshni/hero-vatreshni-800.webp /images/vatreshni/vatreshni-12-800.webp 301
 # Старите AI снимки на покриви (махнати на 26.11.2026) → истинска снимка от обект.
 /images/og/og-pokrivi.jpg /images/og/og-pokrivi-keremidi.jpg 301
 /images/pokrivi/hero-pokrivi-1000.webp /images/pokrivi/obekt-bilo-keremidi-800.webp 301

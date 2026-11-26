@@ -744,7 +744,7 @@ h3 {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(100deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.7) 48%, rgba(255, 255, 255, 0.12) 100%),
+    linear-gradient(100deg, rgba(255, 255, 255, 0.66) 0%, rgba(255, 255, 255, 0.52) 46%, rgba(255, 255, 255, 0.05) 100%),
     linear-gradient(to top, rgba(255, 255, 255, 0.46) 0%, transparent 36%);
 }
 
@@ -752,26 +752,9 @@ h3 {
   max-width: 780px;
 }
 
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 18px;
-  border: 1px solid var(--line-strong);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.85);
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--muted);
-  margin-bottom: 28px;
-}
-
-.hero-badge .dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 4px rgba(232, 67, 42, 0.16);
+.hero h1,
+.hero .lead {
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.7), 0 0 22px rgba(255, 255, 255, 0.75);
 }
 
 .hero h1 {
@@ -2757,6 +2740,12 @@ a.chip:hover {
 @media (max-width: 700px) {
   .hero::before {
     background:
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.74) 70%, rgba(255, 255, 255, 0.6) 100%);
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.64) 0%, rgba(255, 255, 255, 0.58) 70%, rgba(255, 255, 255, 0.46) 100%);
   }
+}
+
+/* Снимката горе на страниците за услуги – истинска снимка, изрязана 4:5 */
+.page-hero-poster img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
 }
