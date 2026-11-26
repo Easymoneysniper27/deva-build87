@@ -752,11 +752,6 @@ h3 {
   max-width: 780px;
 }
 
-.hero h1,
-.hero .lead {
-  text-shadow: 0 0 2px rgba(255, 255, 255, 0.7), 0 0 22px rgba(255, 255, 255, 0.75);
-}
-
 .hero h1 {
   margin-bottom: 24px;
 }
@@ -2736,16 +2731,44 @@ a.chip:hover {
   }
 }
 
-/* Hero на телефон: текстът заема цялата ширина → равномерен светъл слой за четимост */
-@media (max-width: 700px) {
-  .hero::before {
-    background:
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.64) 0%, rgba(255, 255, 255, 0.58) 70%, rgba(255, 255, 255, 0.46) 100%);
-  }
-}
-
 /* Снимката горе на страниците за услуги – истинска снимка, изрязана 4:5 */
 .page-hero-poster img {
   aspect-ratio: 4 / 5;
   object-fit: cover;
+}
+
+/* ---------- Главна снимка: остра снимка + чист фон за текста (26.11.2026) ----------
+   Компютър: текстът е вляво на светъл фон, снимката е вдясно, цяла и остра,
+   с плавен преход. Телефон: снимката е горе, текстът – под нея. */
+@media (min-width: 901px) {
+  .hero-bg {
+    top: -12%;
+    bottom: -12%;
+    left: 50%;
+    right: 0;
+  }
+  .hero::before {
+    background: linear-gradient(90deg, var(--bg-soft) 0%, var(--bg-soft) 49%, rgba(246, 245, 242, 0.65) 53%, rgba(246, 245, 242, 0) 60%);
+  }
+  .hero-inner {
+    max-width: min(600px, 45vw);
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    justify-content: flex-start;
+    min-height: 0;
+    padding-top: calc(var(--nav-h) + 41vh);
+  }
+  .hero-bg {
+    top: 0;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    height: calc(var(--nav-h) + 46vh);
+  }
+  .hero::before {
+    background: linear-gradient(to bottom, rgba(246, 245, 242, 0) 0%, rgba(246, 245, 242, 0) calc(var(--nav-h) + 30vh), var(--bg-soft) calc(var(--nav-h) + 44vh));
+  }
 }

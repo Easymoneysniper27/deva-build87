@@ -4,6 +4,10 @@
 # Махнатата услуга „Груб строеж“ (24.11.2026) → Услуги.
 /grub-stroezh /uslugi 301
 /grub-stroezh.html /uslugi 301
+# Размазаната главна снимка (26.11.2026, заменена с остра) → острата.
+/images/pokrivi/hero-polagane-keremidi-480.webp /images/pokrivi/obekt-polagane-keremidi-480.webp 301
+/images/pokrivi/hero-polagane-keremidi-800.webp /images/pokrivi/obekt-polagane-keremidi-800.webp 301
+/images/pokrivi/hero-polagane-keremidi-1200.webp /images/pokrivi/obekt-polagane-keremidi-1200.webp 301
 # AI постерите на фасади и вътрешни ремонти (махнати на 26.11.2026) → истински снимки.
 /images/fasadi/hero-fasadi-1000.webp /images/fasadi/obekt-toploizolacia-kashta-800.webp 301
 /images/fasadi/hero-fasadi-480.webp /images/fasadi/obekt-toploizolacia-kashta-800.webp 301
