@@ -744,7 +744,7 @@ h3 {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(100deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.45) 44%, rgba(255, 255, 255, 0.15) 100%),
+    linear-gradient(100deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.7) 48%, rgba(255, 255, 255, 0.12) 100%),
     linear-gradient(to top, rgba(255, 255, 255, 0.46) 0%, transparent 36%);
 }
 
@@ -2701,4 +2701,62 @@ a.chip:hover {
 .has-cookie-banner .float-call {
   top: calc(var(--nav-h) + 12px);
   bottom: auto;
+}
+
+/* ---------- Преди / След (покриви) ---------- */
+.before-after {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+.before-after .ba-item {
+  position: relative;
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-card);
+}
+.before-after .ba-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.before-after .ba-label {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: var(--dark);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.before-after .ba-label--after {
+  background: var(--accent-deep);
+}
+.before-after .ba-note {
+  grid-column: 1 / -1;
+  margin: 0;
+  text-align: center;
+  color: var(--muted);
+}
+@media (max-width: 640px) {
+  .before-after {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+/* Hero на телефон: текстът заема цялата ширина → равномерен светъл слой за четимост */
+@media (max-width: 700px) {
+  .hero::before {
+    background:
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.74) 70%, rgba(255, 255, 255, 0.6) 100%);
+  }
 }

@@ -4,6 +4,20 @@
 # Махнатата услуга „Груб строеж“ (24.11.2026) → Услуги.
 /grub-stroezh /uslugi 301
 /grub-stroezh.html /uslugi 301
+# Старите AI снимки на покриви (махнати на 26.11.2026) → истинска снимка от обект.
+/images/og/og-pokrivi.jpg /images/og/og-pokrivi-keremidi.jpg 301
+/images/pokrivi/hero-pokrivi-1000.webp /images/pokrivi/obekt-bilo-keremidi-800.webp 301
+/images/pokrivi/hero-pokrivi-480.webp /images/pokrivi/obekt-bilo-keremidi-800.webp 301
+/images/pokrivi/hero-pokrivi-800.webp /images/pokrivi/obekt-bilo-keremidi-800.webp 301
+/images/pokrivi/pokrivi-01-480.webp /images/pokrivi/obekt-bilo-keremidi-800.webp 301
+/images/pokrivi/pokrivi-01-788.webp /images/pokrivi/obekt-bilo-keremidi-800.webp 301
+/images/pokrivi/pokrivi-02-480.webp /images/pokrivi/obekt-bilo-keremidi-800.webp 301
+/images/pokrivi/pokrivi-02-788.webp /images/pokrivi/obekt-bilo-keremidi-800.webp 301
+/images/pokrivi/pokrivi-03-1200.webp /images/pokrivi/obekt-bilo-keremidi-800.webp 301
+/images/pokrivi/pokrivi-03-480.webp /images/pokrivi/obekt-bilo-keremidi-800.webp 301
+/images/pokrivi/pokrivi-03-800.webp /images/pokrivi/obekt-bilo-keremidi-800.webp 301
+/images/pokrivi/pokrivi-04-480.webp /images/pokrivi/obekt-bilo-keremidi-800.webp 301
+/images/pokrivi/pokrivi-04-788.webp /images/pokrivi/obekt-bilo-keremidi-800.webp 301
 /design-system/* / 301
 /.claude/* / 301
 /Bug/* / 301
