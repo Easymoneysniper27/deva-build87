@@ -281,7 +281,7 @@
       failBox.innerHTML =
         'Запитването <strong>не беше изпратено</strong> — проблем с връзката. ' +
         'Моля, опитайте отново или се обадете на <a href="tel:+359884202868">0884 202 868</a> ' +
-        '(или пишете на <a href="mailto:deva-build87@mail.bg">deva-build87@mail.bg</a>).';
+        '(или пишете на <a href="mailto:ivniki27@gmail.com">ivniki27@gmail.com</a>).';
       failBox.classList.add("is-visible");
       if (typeof gtag === "function") gtag("event", "form_error", { form_id: "contact-form" });
     }
